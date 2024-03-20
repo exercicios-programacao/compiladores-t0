@@ -59,6 +59,7 @@ jobs:
           pip install -e .
           behave
       - name: Arquiva resultados
+        if: ${{ always() }}
         uses: actions/upload-artifact@v3
         with:
           name: homework_evaluation
@@ -75,6 +76,7 @@ jobs:
         with:
           name: homework_evaluation
       - run: sed -n -e '$ ! p' RESULT
+        name: Resultado
   report_grade:
     name: Previsão de nota final
     if: ${{ always() }}
@@ -86,3 +88,4 @@ jobs:
         with:
           name: homework_evaluation
       - run: sed -n -e '$ p' RESULT
+        name: Previsão de Nota
