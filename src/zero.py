@@ -10,3 +10,9 @@ def procura_maior(lista):
         if item > maior:
             maior = item
     return maior
+
+
+def procura_menor(lista):
+    """Retorna menor elemento da lista"""
+    return min(lista)
+
